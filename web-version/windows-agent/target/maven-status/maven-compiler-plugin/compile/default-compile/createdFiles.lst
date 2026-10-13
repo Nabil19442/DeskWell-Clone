@@ -1,0 +1,8 @@
+com\deskwell\agent\sync\SyncService.class
+com\deskwell\agent\config\AgentConfig.class
+com\deskwell\agent\storage\LocalQueueStorage.class
+com\deskwell\agent\blocker\WindowsAppBlocker.class
+com\deskwell\agent\tracker\WindowsActivityTracker.class
+com\deskwell\agent\model\ActivitySlice.class
+com\deskwell\agent\AgentLauncher.class
+com\deskwell\agent\tracker\WindowsActivityTracker$ProcessInfo.class

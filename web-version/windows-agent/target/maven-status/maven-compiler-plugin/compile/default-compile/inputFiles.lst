@@ -1,0 +1,7 @@
+D:\Professional\java\deskwell\web-version\windows-agent\src\main\java\com\deskwell\agent\AgentLauncher.java
+D:\Professional\java\deskwell\web-version\windows-agent\src\main\java\com\deskwell\agent\blocker\WindowsAppBlocker.java
+D:\Professional\java\deskwell\web-version\windows-agent\src\main\java\com\deskwell\agent\config\AgentConfig.java
+D:\Professional\java\deskwell\web-version\windows-agent\src\main\java\com\deskwell\agent\model\ActivitySlice.java
+D:\Professional\java\deskwell\web-version\windows-agent\src\main\java\com\deskwell\agent\storage\LocalQueueStorage.java
+D:\Professional\java\deskwell\web-version\windows-agent\src\main\java\com\deskwell\agent\sync\SyncService.java
+D:\Professional\java\deskwell\web-version\windows-agent\src\main\java\com\deskwell\agent\tracker\WindowsActivityTracker.java

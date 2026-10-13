@@ -29,6 +29,7 @@ import {
   Legend
 } from 'recharts';
 import { useOutletContext } from 'react-router-dom';
+import { useTheme } from '../context/ThemeContext';
 
 function formatHours(seconds) {
   if (!seconds) return '0h 00m';
@@ -39,9 +40,24 @@ function formatHours(seconds) {
 
 export default function Dashboard() {
   const { openLogModal } = useOutletContext();
+  const { theme } = useTheme();
+  const isDark = theme === 'dark';
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const tooltipStyle = {
+    backgroundColor: isDark ? '#0f172a' : '#ffffff',
+    borderColor: isDark ? '#1e293b' : '#e2e8f0',
+    color: isDark ? '#f8fafc' : '#0f172a',
+    borderRadius: '8px',
+    boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)',
+    fontSize: '12px'
+  };
+  const tooltipItemStyle = {
+    color: isDark ? '#f8fafc' : '#0f172a'
+  };
+  const axisStroke = isDark ? '#64748b' : '#94a3b8';
 
   const fetchStats = async () => {
     try {
@@ -203,10 +219,11 @@ export default function Dashboard() {
             {hourlyChartData.length > 0 ? (
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={hourlyChartData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-                  <XAxis dataKey="hour" stroke="#94a3b8" fontSize={11} tickLine={false} />
-                  <YAxis stroke="#94a3b8" fontSize={11} tickLine={false} />
+                  <XAxis dataKey="hour" stroke={axisStroke} fontSize={11} tickLine={false} />
+                  <YAxis stroke={axisStroke} fontSize={11} tickLine={false} />
                   <Tooltip 
-                    contentStyle={{ backgroundColor: '#0f172a', borderColor: '#1e293b', borderRadius: '8px', color: '#fff', fontSize: '12px' }}
+                    contentStyle={tooltipStyle}
+                    itemStyle={tooltipItemStyle}
                     formatter={(val) => [`${val} mins`, 'Active Time']}
                   />
                   <Bar dataKey="minutes" fill="#3b82f6" radius={[4, 4, 0, 0]} />
@@ -251,7 +268,8 @@ export default function Dashboard() {
                     ))}
                   </Pie>
                   <Tooltip 
-                    contentStyle={{ backgroundColor: '#0f172a', borderColor: '#1e293b', borderRadius: '8px', color: '#fff', fontSize: '12px' }}
+                    contentStyle={tooltipStyle}
+                    itemStyle={tooltipItemStyle}
                     formatter={(val, name, props) => [formatHours(val), props.payload.categoryName]}
                   />
                 </PieChart>
@@ -311,10 +329,11 @@ export default function Dashboard() {
                       <stop offset="95%" stopColor="#10b981" stopOpacity={0}/>
                     </linearGradient>
                   </defs>
-                  <XAxis dataKey="date" stroke="#94a3b8" fontSize={11} tickLine={false} />
-                  <YAxis stroke="#94a3b8" fontSize={11} tickLine={false} />
+                  <XAxis dataKey="date" stroke={axisStroke} fontSize={11} tickLine={false} />
+                  <YAxis stroke={axisStroke} fontSize={11} tickLine={false} />
                   <Tooltip 
-                    contentStyle={{ backgroundColor: '#0f172a', borderColor: '#1e293b', borderRadius: '8px', color: '#fff', fontSize: '12px' }}
+                    contentStyle={tooltipStyle}
+                    itemStyle={tooltipItemStyle}
                   />
                   <Legend wrapperStyle={{ fontSize: '11px', paddingTop: '8px' }} />
                   <Area type="monotone" dataKey="screenHours" name="Screen Time (hrs)" stroke="#3b82f6" fillOpacity={1} fill="url(#screenGrad)" strokeWidth={2} />

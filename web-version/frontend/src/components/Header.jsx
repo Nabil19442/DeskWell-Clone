@@ -37,13 +37,15 @@ export default function Header({ title, description, onToggleSidebar, onOpenLogM
         </button>
 
         <button
+          id="theme-toggle-header"
+          type="button"
           onClick={toggleTheme}
-          className="p-2 rounded-lg text-slate-500 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-          aria-label="Toggle Theme"
+          className="p-2 rounded-lg text-slate-500 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-hidden focus:ring-2 focus:ring-blue-500"
+          aria-label={theme === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode'}
           title={`Switch to ${theme === 'light' ? 'Dark' : 'Light'} Mode`}
         >
           {theme === 'light' ? (
-            <Moon className="w-4 h-4 text-slate-600" />
+            <Moon className="w-4 h-4 text-slate-600 dark:text-slate-300" />
           ) : (
             <Sun className="w-4 h-4 text-amber-400" />
           )}

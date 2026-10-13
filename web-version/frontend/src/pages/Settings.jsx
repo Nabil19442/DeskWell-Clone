@@ -95,28 +95,32 @@ export default function Settings() {
 
           <div className="grid grid-cols-2 gap-3 max-w-md">
             <button
+              id="theme-btn-light"
               type="button"
               onClick={() => setTheme('light')}
-              className={`p-4 rounded-xl border flex flex-col items-center gap-2 transition-all ${
+              aria-label="Set Light Theme"
+              className={`p-4 rounded-xl border flex flex-col items-center gap-2 transition-all cursor-pointer ${
                 theme === 'light'
-                  ? 'border-blue-600 bg-blue-50/50 dark:bg-blue-950/40 text-blue-600 font-bold'
+                  ? 'border-blue-600 bg-blue-50/60 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 font-bold shadow-xs ring-2 ring-blue-500/20'
                   : 'border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'
               }`}
             >
-              <Sun className="w-5 h-5" />
+              <Sun className="w-5 h-5 text-amber-500" />
               <span className="text-xs">Light Mode</span>
             </button>
 
             <button
+              id="theme-btn-dark"
               type="button"
               onClick={() => setTheme('dark')}
-              className={`p-4 rounded-xl border flex flex-col items-center gap-2 transition-all ${
+              aria-label="Set Dark Theme"
+              className={`p-4 rounded-xl border flex flex-col items-center gap-2 transition-all cursor-pointer ${
                 theme === 'dark'
-                  ? 'border-blue-500 bg-blue-900/40 text-blue-300 font-bold'
+                  ? 'border-blue-500 bg-blue-50/60 dark:bg-blue-950/40 text-blue-600 dark:text-blue-400 font-bold shadow-xs ring-2 ring-blue-500/20'
                   : 'border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800'
               }`}
             >
-              <Moon className="w-5 h-5" />
+              <Moon className="w-5 h-5 text-blue-400" />
               <span className="text-xs">Dark Mode</span>
             </button>
           </div>
